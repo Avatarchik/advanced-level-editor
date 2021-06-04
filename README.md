@@ -2,6 +2,9 @@
 
 ⚠ **ALE IS IN VERY EARLY DEVELOPMENT! ANYTHING CAN CHANGE SUDDENLY! USE AT YOUR OWN RISK** ⚠
 
+![Built level editor](https://i.imgur.com/Q8Wgo8n.png)
+*Image is what ALE currently looks like. Will get periodically updated along with ALE. Keep in mind everything is a work in progress!*
+
 ## ❓ What is it?
 ALE is a runtime level editor for Unity that aims to be simple to use both for the user and the developer. It's built with performance and usability in mind. It should also be extendable so you can adapt it to fit just right for your game.
 
@@ -17,13 +20,13 @@ In the future, the same will magic will be applied to much more. It's coming eve
 ALE is still in EARLY development. There's still a lot to do and it's nowhere close to finish. But it should be useable now. Anyways, here are some things that I need to do and the things that are finished.
 #### Required
 What needs to be done before 1.0.0 verified.  
-- [ ] Binary serialization and deserialization
+- [x] Binary serialization and deserialization
 - [x] JSON serialization and deserialization
-- [ ] Unified serializer for binary and JSON
+- [x] Unified serializer for binary and JSON
 - [x] Editor camera
 - [ ] Full 2D support
 - [ ] Full 3D support
-- [ ] Input System support
+- [x] Input System support
 - [ ] Undo and redo
 - [x] Hierarchy
 - [ ] Hierarchy customization
@@ -31,19 +34,20 @@ What needs to be done before 1.0.0 verified.
 - [x] Custom component fields
 - [x] Resource browser
 - [ ] Resource browser customization
-- [ ] Level editor gizmos
-- [ ] Play mode
+- [x] Level editor gizmos
+- [x] Play mode
 - [x] Save all exposed values in play mode
-- [ ] Auto serialize unknown types
+- [ ] Auto serialize unknown types³
 - [ ] Auto expose unknown types
 - [x] Integrate custom serializers
 - [ ] Menu items
+- [ ] Add component menus
+- [x] Fast enter play mode support
 - [x] Custom component wrappers
-- [x] Serialize arrays
-- [ ] Serialize lists
-- [ ] Serialize dictionary
+- [x] Serialize arrays¹
+- [x] Serialize lists¹
+- [ ] Serialize dictionary²
 - [ ] Resource limit support
-- [ ] Generate resource icons at build time
 
 #### Optional
 What would be really nice to have before 1.0.0 verified.  
@@ -51,7 +55,6 @@ What would be really nice to have before 1.0.0 verified.
 - [ ] Scene grid
 - [ ] Manipulation handles
 - [ ] Adaptive editor GUI
-- [ ] Clean up code
 - [ ] Tilemap integration
 - [ ] ProBuilder integration
 - [ ] Multiselection support
@@ -69,11 +72,15 @@ The supported inspector fields.
 - [x] Vector3(int) field
 - [ ] Vector4/Quaternion field
 - [x] Object reference field
-- [ ] Resource reference
+- [ ] Resource reference field
 - [x] Color field
-- [ ] Arrays
+- [ ] Array field
 - [ ] Nested classes/structs
 - [x] Enum field
+
+¹ Doesn't work 100% with Unity objects yet. **May appear to work during runtime but most likely won't work in build!**  
+² While technically it will serialize dictionaries, it won't serialize exposed field dictionaries.  
+³ It will automatically serialize structs but not classes.
 
 ## 📦 Installation 
 #### Without package manager
@@ -109,12 +116,16 @@ public string MyProperty { get; set; }
 #### Write custom writers and readers for serialization
 TODO
 
+## 📃 License
+ALE itself is licensed under MIT. However, it contains some code that is under Unity's own license. As long as you use ALE within Unity, you're good to go.
+
 ## ❤ Credits
 [yasirkula](https://github.com/yasirkula) - [Dynamic Panels for Unity3D](https://github.com/yasirkula/UnityDynamicPanels) for panels  
 [yasirkula](https://github.com/yasirkula) - [Runtime Inspector & Hierarchy for Unity 3D](https://github.com/yasirkula/UnityRuntimeInspector) for tree control  
 Unity Technologies/ProBuilder team - [GILES](https://github.com/Unity-Technologies/giles) for editor camera  
 [judah4](https://github.com/judah4) - [HSV Color Picker](https://github.com/judah4/HSV-Color-Picker-Unity) for color picker  
-The [MirrorNG team](https://github.com/MirrorNG) - Lots of weaving code from [MirrorNG](https://github.com/MirrorNG/MirrorNG)  
-[paulpach](https://github.com/paulpach) - Helped me with weaver related questions
+[Mirage team](https://github.com/MirageNet) - Lots of weaving code from [Mirage](https://github.com/MirageNet/Mirage)  
+[paulpach](https://github.com/paulpach) - Helped me with weaver related questions  
+[Yoshifumi Kawai](https://github.com/neuecc) - [MessagePack for C#](https://github.com/neuecc/MessagePack-CSharp) for serialization  
 
-❤ Developed with love and support from [Limit Break Studio](https://main.limitbreakstudio.com/) ❤
+❤ Developed with love and support from [Aurora Punks](https://www.aurorapunks.com/) ❤
